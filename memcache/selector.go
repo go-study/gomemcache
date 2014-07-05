@@ -93,5 +93,6 @@ func (ss *ServerList) PickServer(key string) (net.Addr, error) {
 	}
 	// TODO-GO: remove this copy
 	cs := crc32.ChecksumIEEE([]byte(key))
+	// TODO-GO: add consistent hash here
 	return ss.addrs[cs%uint32(len(ss.addrs))], nil
 }
